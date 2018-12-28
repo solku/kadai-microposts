@@ -9,10 +9,19 @@
                 <div>
                     <p>{!! nl2br(e($micropost->content)) !!}</p>
                 </div>
-                <div>
+                <div class="row">
+                    @if (Auth::user()->already_favorite($micropost->id))
+                        {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('Unfavorite', ['class' => "btn btn-success btn-sm-6"]) !!}
+                        {!! Form::close() !!}
+                    @else
+                        {!! Form::open(['route' => ['favorites.favorite', $micropost->id]]) !!}
+                            {!! Form::submit('Favorite', ['class' => "btn btn-sm-6"]) !!}
+                        {!! Form::close() !!}
+                    @endif
                     @if (Auth::id() == $micropost->user_id)
                         {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm-6']) !!}
                         {!! Form::close() !!}
                     @endif
                 </div>
