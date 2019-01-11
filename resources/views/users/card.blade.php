@@ -7,3 +7,8 @@
     </div>
 </div>
 @include('user_follow.follow_button', ['user' => $user])
+@if ($user->introduction)
+    <div class="mt-4">
+        <p>{!! nl2br(e($user->introduction)) !!}</p>
+    </div>
+@endif

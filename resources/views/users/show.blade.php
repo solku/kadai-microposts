@@ -4,6 +4,11 @@
     <div class="row">
         <aside class="col-sm-4">
             @include('users.card', ['user' => $user])
+            @if (Auth::id() == $user->id)
+                <div class="clearfix">
+                    {!! link_to_route('users.edit', 'Edit Profile', ['id' => $user->id], ['class' => 'mt-2 btn btn-info float-right']) !!}
+                </div>
+            @endif
         </aside>
         <div class="col-sm-8">
             @include('users.navtabs', ['user' => $user])

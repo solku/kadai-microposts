@@ -78,4 +78,28 @@ class UsersController extends Controller
 
         return view('users.favorites', $data);
     }
+    
+    public function edit($id)
+    {
+        $user = User::find($id);
+
+        return view('users.edit', [
+            'user' => $user,
+        ]);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'introduction' => 'max:160',
+        ]);
+        
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->introduction = $request->introduction;
+        $user->save();
+
+        return redirect('/users/'.$user->id);
+    }
 }
