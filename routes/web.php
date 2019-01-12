@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('followings', 'UsersController@followings')->name('users.followings');
         Route::get('followers', 'UsersController@followers')->name('users.followers');
         Route::get('favorites', 'UsersController@favorites')->name('users.favorites');
+        Route::get('unsubscribe', 'UsersController@unsubscribe')->name('users.unsubscribe');
     });
     
     Route::group(['prefix' => 'microposts/{id}'], function () {

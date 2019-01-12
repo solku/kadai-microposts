@@ -5,8 +5,8 @@
         <aside class="col-sm-4">
             @include('users.card', ['user' => $user])
             @if (Auth::id() == $user->id)
-                <div class="clearfix">
-                    {!! link_to_route('users.edit', 'Edit Profile', ['id' => $user->id], ['class' => 'mt-2 btn btn-info float-right']) !!}
+                <div class="d-flex justify-content-end">
+                    {!! link_to_route('users.edit', 'Edit Profile', ['id' => $user->id], ['class' => 'btn btn-info']) !!}
                 </div>
             @endif
         </aside>

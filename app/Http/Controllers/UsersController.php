@@ -102,4 +102,21 @@ class UsersController extends Controller
 
         return redirect('/users/'.$user->id);
     }
+    
+    public function unsubscribe($id)
+    {
+        $user = User::find($id);
+
+        return view('users.unsubscribe', [
+            'user' => $user,
+        ]);
+    }
+    
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect('/');
+    }
 }

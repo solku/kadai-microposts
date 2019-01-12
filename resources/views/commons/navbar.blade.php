@@ -19,6 +19,9 @@
                                 <li>{!! link_to_route('users.favorites', 'Favorites', ['id' => Auth::id()], ['class' => 'dropdown-item-text']) !!}</li>
                                 <li class="dropdown-divider"></li>
                                 <li>{!! link_to_route('logout.get', 'Logout', [], ['class' => 'dropdown-item-text']) !!}</li>
+                                @if (Request::is('users/'.Auth::id()))
+                                    <li>{!! link_to_route('users.unsubscribe', 'Unsubscribe', ['id' => Auth::id()], ['class' => 'dropdown-item-text']) !!}</li>
+                                @endif
                             </ul>
                         </li>
                     @else

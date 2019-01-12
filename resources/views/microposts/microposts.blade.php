@@ -9,7 +9,7 @@
                 <div>
                     <p>{!! nl2br(e($micropost->content)) !!}</p>
                 </div>
-                <div class="d-flex">
+                <div class="d-flex justify-content-start">
                     @if (Auth::user()->already_favorite($micropost->id))
                         {!! Form::open(['route' => ['favorites.unfavorite', $micropost->id], 'method' => 'delete']) !!}
                             {!! Form::submit('Unfavorite', ['class' => "btn btn-success"]) !!}

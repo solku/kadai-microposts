@@ -13,8 +13,8 @@
                     {!! Form::label('introduction', 'Introduction:') !!}
                     {!! Form::textarea('introduction', null, ['class' => 'form-control', 'rows' => '3']) !!}
                 </div>
-                <div class="clearfix">
-                    {!! Form::submit('Save', ['class' => 'btn btn-info float-right']) !!}
+                <div class="d-flex justify-content-end">
+                    {!! Form::submit('Save', ['class' => 'btn btn-info']) !!}
                 </div>
             {!! Form::close() !!}
         </div>
